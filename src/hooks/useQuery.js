@@ -8,7 +8,7 @@ function useQuery(url) {
 
   useEffect(() => {
     setIsLoaded(false);
-    fetch(url)
+    fetch("http://localhost:4000/posts")
       .then((r) => r.json())
       .then((data) => {
         setData(data);
@@ -19,7 +19,11 @@ function useQuery(url) {
   // we want to use the side effect whenever the url changes
 
   // return an *object* with the data and isLoaded state
-  return { data, isLoaded };
+  return {
+    
+    posts: posts,
+     isLoaded: isLoaded,
+     };
 }
 
 export default useQuery;
